@@ -7,15 +7,46 @@
 
 import SwiftUI
 
-struct RootView: View {
+struct RootView<ViewModel>: View where ViewModel: RootViewModel {
+    @ObservedObject
+    var viewModel: ViewModel
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            NavigationView {
+                ZStack {
+                    if let arguments = viewModel.productDetailArguments {
+                        NavigationLink(
+                            destination: LazyView(ProductDetail(viewModel: ProductDetailViewModel(arguments: arguments))),
+                            isActive: $viewModel.isProductDetailNavigationActive,
+                            label: {
+                                EmptyView()
+                            })
+                            .opacity(0)
+                    }
+
+                    VStack {
+                        Spacer()
+
+                        Text("RootView")
+                            .padding()
+
+                        Button(action: {
+                            viewModel.openProductDetail(with: "product_x")
+                        }, label: {
+                            Text("Open ProductDetail")
+                        })
+
+                        Spacer()
+                    }
+                }
+            }
+        }
     }
 }
 
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
-        RootView()
+        RootView(viewModel: RootViewModel())
     }
 }
