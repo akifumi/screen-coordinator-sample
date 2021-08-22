@@ -17,6 +17,7 @@
 		6EF6D4BC26D2A11F0013D701 /* ScreenCoordinatorSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6D4BB26D2A11F0013D701 /* ScreenCoordinatorSampleUITests.swift */; };
 		6EF6D4DE26D2B06F0013D701 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6D4DD26D2B06F0013D701 /* ProductList.swift */; };
 		6EF6D4E026D2B08B0013D701 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6D4DF26D2B08B0013D701 /* ProductListViewModel.swift */; };
+		6EF6D4E826D2B3800013D701 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF6D4E726D2B3800013D701 /* LazyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6EF6D4BD26D2A11F0013D701 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EF6D4DD26D2B06F0013D701 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		6EF6D4DF26D2B08B0013D701 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		6EF6D4E726D2B3800013D701 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				6EF6D4DC26D2B04C0013D701 /* ProductList */,
 				6EF6D4D626D2AC350013D701 /* Root */,
+				6EF6D4E626D2B3690013D701 /* Util */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -164,6 +167,14 @@
 				6EF6D4DF26D2B08B0013D701 /* ProductListViewModel.swift */,
 			);
 			path = ProductList;
+			sourceTree = "<group>";
+		};
+		6EF6D4E626D2B3690013D701 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6EF6D4E726D2B3800013D701 /* LazyView.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 			files = (
 				6EF6D49A26D2A11D0013D701 /* AppDelegate.swift in Sources */,
 				6EF6D4E026D2B08B0013D701 /* ProductListViewModel.swift in Sources */,
+				6EF6D4E826D2B3800013D701 /* LazyView.swift in Sources */,
 				6EF6D4DE26D2B06F0013D701 /* ProductList.swift in Sources */,
 				6EF6D49C26D2A11D0013D701 /* SceneDelegate.swift in Sources */,
 				6EF6D49E26D2A11D0013D701 /* RootView.swift in Sources */,
