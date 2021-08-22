@@ -12,13 +12,13 @@ final class ProductListViewModel: ObservableObject {
     init() {
         var rows: [Row] = []
         for i in 0..<100 {
-            rows.append(Row(id: i, title: "Product \(i)"))
+            rows.append(Row(id: "product_\(i)", title: "Product \(i)"))
         }
         self.rows = rows
     }
 
     struct Row {
-        let id: Int
+        let id: String
         let title: String
     }
 
