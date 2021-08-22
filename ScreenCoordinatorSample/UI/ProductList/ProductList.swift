@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProductList<ViewModel>: View where ViewModel: ProductListViewModel {
+    @EnvironmentObject
+    var screenCoordinator: ScreenCoordinator
+
     @ObservedObject
     var viewModel: ViewModel
 
@@ -21,7 +24,14 @@ struct ProductList<ViewModel>: View where ViewModel: ProductListViewModel {
                 }
 
                 Button(action: {
-
+                    screenCoordinator.presentedPopup = .init(
+                        arguments: .init(
+                            close: {
+                                screenCoordinator.presentedPopup = .init(arguments: nil, isActive: false)
+                            }
+                        ),
+                        isActive: true
+                    )
                 }, label: {
                     Text("Show Popup")
                         .padding()

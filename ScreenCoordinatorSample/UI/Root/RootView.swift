@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct RootView<ViewModel>: View where ViewModel: RootViewModel {
+    @EnvironmentObject
+    var screenCoordinator: ScreenCoordinator
+
     @ObservedObject
     var viewModel: ViewModel
 
@@ -38,8 +41,28 @@ struct RootView<ViewModel>: View where ViewModel: RootViewModel {
                         })
 
                         Spacer()
+
+                        Button(action: {
+                            screenCoordinator.presentedPopup = .init(
+                                arguments: .init(
+                                    close: {
+                                        screenCoordinator.presentedPopup = .init(arguments: nil, isActive: false)
+                                    }
+                                ),
+                                isActive: true
+                            )
+                        }, label: {
+                            Text("Show Popup")
+                                .padding()
+                                .background(Color.black)
+                                .cornerRadius(8.0)
+                        })
                     }
                 }
+            }
+
+            if screenCoordinator.presentedPopup.isActive, let arguments = screenCoordinator.presentedPopup.arguments {
+                Popup(state: arguments)
             }
         }
     }
@@ -48,5 +71,6 @@ struct RootView<ViewModel>: View where ViewModel: RootViewModel {
 struct RootView_Previews: PreviewProvider {
     static var previews: some View {
         RootView(viewModel: RootViewModel())
+            .environmentObject(ScreenCoordinator())
     }
 }
